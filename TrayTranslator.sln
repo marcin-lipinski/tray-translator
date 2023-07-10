@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrayTranslator", "TrayTranslator\TrayTranslator.csproj", "{8B5F270C-7394-4621-97D4-84E771425842}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OibraryExample", "OibraryExample\OibraryExample.csproj", "{5DBDA921-ECC1-4D86-BEB8-1D4F42F58674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Translator", "Translator\Translator.csproj", "{5DBDA921-ECC1-4D86-BEB8-1D4F42F58674}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "icons", "icons", "{71A916BD-C1E6-4014-B801-6209985D6036}"
 	ProjectSection(SolutionItems) = preProject

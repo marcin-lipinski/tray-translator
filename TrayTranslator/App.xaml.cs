@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OibraryExample;
 using System.Windows;
-using TrayTranslator.StartupHelpers;
-using System.Net.Http;
+using Translator;
+using Translator.Extensions;
 
 namespace TrayTranslator;
 
 public partial class App : Application
 {
-    public static IHost? AppHost { get; private set; }
+    public static IHost AppHost { get; private set; }
 
     public App()
     {
@@ -17,9 +16,8 @@ public partial class App : Application
             .ConfigureServices((hostContext, servicies) =>
             {
                 servicies.AddSingleton<MainWindow>();
-                servicies.AddTransient<IExampleOfDI, ExampleOfDI>();
-                servicies.AddFormFactory<ChildForm>();
                 servicies.AddTranslationClient("translatorApi");
+                servicies.AddSingleton<ITranslationClient, TranslationClient>();
             })
             .Build();
     }

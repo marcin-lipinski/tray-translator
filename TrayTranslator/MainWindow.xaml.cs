@@ -1,71 +1,100 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
-using OibraryExample;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Reflection.Metadata;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows;
-using TrayTranslator.Models;
-using TrayTranslator.StartupHelpers;
-
-
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Shapes;
+using Translator;
 
 namespace TrayTranslator;
 
 public partial class MainWindow : Window
 {
-    private readonly IExampleOfDI exampleOfDI;
-    private readonly IAbstractFactory<ChildForm> factory;
-    private readonly IHttpClientFactory httpClientFactory;
+    private readonly ITranslationClient _translationClient;
 
-    public MainWindow(IExampleOfDI exampleOfDI, IAbstractFactory<ChildForm> factory, IHttpClientFactory httpClientFactory)
+    public MainWindow(ITranslationClient translationClient)
     {
         InitializeComponent();
-        this.exampleOfDI = exampleOfDI;
-        this.factory = factory;
-        this.httpClientFactory = httpClientFactory;
+        AddLanguagesToComboBox();
+        _translationClient = translationClient;
+
+        Left = SystemParameters.PrimaryScreenWidth - (Width + 10);
+        Top = SystemParameters.PrimaryScreenHeight - (Height + 10 + SystemParameters.PrimaryScreenHeight - SystemParameters.FullPrimaryScreenHeight - SystemParameters.WindowCaptionHeight);
+        ExitButtonEllipse.Cursor = Cursors.Hand;
+        ExitButtonText.Cursor = Cursors.Hand;
     }
 
-    private async void getData_Click(object sender, RoutedEventArgs e)
+    private async void AddLanguagesToComboBox()
     {
-        var client = httpClientFactory.CreateClient("translatorApi");
-        var mes = TranslationRequestMessage.Get("Hello, world!", "en", "es");
-
-        var response = await client.SendAsync(mes);
-        var content = await response.Content.ReadFromJsonAsync<Response>();
-        Data.Text = content.Data.Translations.First().TranslatedText;
-
-       MyIcon.Visibility = Visibility.Hidden;
+        var uri = System.IO.Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName, "Translator", "languages.json");
+        using var reader = new StreamReader(uri);
+        var json = await reader.ReadToEndAsync();
+        var languages = JsonSerializer.Deserialize<List<Language>>(json).ToDictionary(lang => lang.fullName);
+        foreach (var language in languages)
+        {
+            SourceLanguageComboBox.Items.Add(language.Value.fullName);
+            TargetLanguageComboBox.Items.Add(language.Value.fullName);
+        }
     }
 
-    private void openChildForm_Click(object sender, RoutedEventArgs e)
+    protected override void OnClosing(CancelEventArgs e)
     {
-        factory.Create().Show();
-        Data.Text = string.Empty;
-        MyIcon.Visibility = Visibility.Visible;
+        base.OnClosing(e);
+
+        if (e.Cancel == false)
+        {
+            e.Cancel = true;
+            Hide();
+        }
+    }
+
+    private void closeButton_Click(object sender, RoutedEventArgs e)
+    {
+        Hide();
+    }
+
+    private async void SourceText_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var currentText = SourceText.Text;
+        var targetText = await DelayedCheck(currentText);
+        TargetText.Text = targetText.Length == 0 ? TargetText.Text : targetText;
+    }
+
+    private async Task<string> DelayedCheck(string registeredText)
+    {
+        await Task.Delay(750);
+        if (SourceText.Text.Equals(registeredText))
+        {
+            var sourceLanguage = SourceLanguageComboBox.Text;
+            var targetLanguage = TargetLanguageComboBox.Text;
+            return await _translationClient.Translate(registeredText, sourceLanguage, targetLanguage);
+        }
+        return string.Empty;
+    }
+
+    private void MenuItem_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
+
+    private void ExitButtonText_MouseEnter(object sender, MouseEventArgs e)
+    {
+        ExitButtonEllipseShadow.Visibility = Visibility.Visible;
+    }
+
+    private void ExitButtonText_MouseLeave(object sender, MouseEventArgs e)
+    {
+        ExitButtonEllipseShadow.Visibility = Visibility.Hidden;
     }
 }
 
-
-public class Response
+class Language
 {
-    public Data Data { get; set; }
+    public string fullName { get; set; }
+    public string shortName { get; set; }
 }
-
-public class Data
-{
-    public Translation[] Translations { get; set; }
-}
-
-public class Translation
-{
-    public string TranslatedText { get; set; }
-}
-
-
