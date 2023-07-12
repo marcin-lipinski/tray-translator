@@ -5,32 +5,31 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Translator.Models;
 
-namespace Translator.Services
+namespace Translator.Services;
+
+internal class LanguagesService
 {
-    internal class LanguagesService
+    private Dictionary<string, Language> _languages;
+    public LanguagesService()
     {
-        private Dictionary<string, Language> _languages;
-        public LanguagesService()
-        {
-            LoadLanguages();
-        }
+        LoadLanguages();
+    }
 
-        public string LanguageShortName(string language) => _languages[language].ShortName;
-        public List<string> Languages
-        {
-            get => _languages.Keys.OrderBy(a => a).ToList();
-           
-        }
+    public string LanguageShortName(string language) => _languages[language].ShortName;
+    public List<string> Languages
+    {
+        get => _languages.Keys.OrderBy(a => a).ToList();
 
-        private async void LoadLanguages()
+    }
+
+    private async void LoadLanguages()
+    {
+        await Task.Run(() =>
         {
-            await Task.Run(() =>
-            {
-                var uri = Path.Combine(TranslationClient.DirectoryPath, "languages.json");
-                using var reader = new StreamReader(uri);
-                var json = reader.ReadToEnd();
-                _languages = JsonSerializer.Deserialize<List<Language>>(json).ToDictionary(lang => lang.FullName);
-            });
-        }
+            var uri = Path.Combine(TranslationClient.DirectoryPath, "languages.json");
+            using var reader = new StreamReader(uri);
+            var json = reader.ReadToEnd();
+            _languages = JsonSerializer.Deserialize<List<Language>>(json).ToDictionary(lang => lang.FullName);
+        });
     }
 }
