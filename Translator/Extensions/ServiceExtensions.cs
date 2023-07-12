@@ -16,9 +16,9 @@ public static class ServiceExtensions
             .AddJsonFile("Translator\\appsettings.json", optional: false, reloadOnChange: true)
             .Build();
 
-    var apiUri = config.GetValue<string>("translateApiUri");
-        var apiKey = config.GetValue<string>("translateApiKey");
-        var apiHost = config.GetValue<string>("translateApiHost");
+        var apiUri = config.GetValue<string>("apiUri");
+        var apiKey = config.GetValue<string>("apiKey");
+        var apiHost = config.GetValue<string>("apiHost");
 
         services.AddHttpClient(name, client =>
         {

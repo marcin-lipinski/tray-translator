@@ -23,8 +23,4 @@
     <ProjectReference Include="..\Translator\Translator.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Icons/error.ico" />
-  </ItemGroup>
-
 </Project>

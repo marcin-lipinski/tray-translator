@@ -219,7 +219,7 @@
 
             <tb:TaskbarIcon
                 x:Name="MyIcon"
-                IconSource="Icons/error.ico"
+                IconSource="resources/error.ico"
                 ToolTipText="Click to open a translator">
 
                 <tb:TaskbarIcon.ContextMenu>
