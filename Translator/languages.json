@@ -1,0 +1,538 @@
+[
+  {
+    "fullName": "Afrikaans",
+    "shortName": "af"
+  },
+  {
+    "fullName": "Akan",
+    "shortName": "ak"
+  },
+  {
+    "fullName": "Amharic",
+    "shortName": "am"
+  },
+  {
+    "fullName": "Arabic",
+    "shortName": "ar"
+  },
+  {
+    "fullName": "Assamese",
+    "shortName": "as"
+  },
+  {
+    "fullName": "Aymara",
+    "shortName": "ay"
+  },
+  {
+    "fullName": "Azerbaijani",
+    "shortName": "az"
+  },
+  {
+    "fullName": "Belarusian",
+    "shortName": "be"
+  },
+  {
+    "fullName": "Bulgarian",
+    "shortName": "bg"
+  },
+  {
+    "fullName": "Bhojpuri",
+    "shortName": "bho"
+  },
+  {
+    "fullName": "Bambara",
+    "shortName": "bm"
+  },
+  {
+    "fullName": "Bengali",
+    "shortName": "bn"
+  },
+  {
+    "fullName": "Bosnian",
+    "shortName": "bs"
+  },
+  {
+    "fullName": "Catalan",
+    "shortName": "ca"
+  },
+  {
+    "fullName": "Cebuano",
+    "shortName": "ceb"
+  },
+  {
+    "fullName": "Central Kurdish",
+    "shortName": "ckb"
+  },
+  {
+    "fullName": "Corsican",
+    "shortName": "co"
+  },
+  {
+    "fullName": "Czech",
+    "shortName": "cs"
+  },
+  {
+    "fullName": "Welsh",
+    "shortName": "cy"
+  },
+  {
+    "fullName": "Danish",
+    "shortName": "da"
+  },
+  {
+    "fullName": "German",
+    "shortName": "de"
+  },
+  {
+    "fullName": "Dogri",
+    "shortName": "doi"
+  },
+  {
+    "fullName": "Divehi",
+    "shortName": "dv"
+  },
+  {
+    "fullName": "Ewe",
+    "shortName": "ee"
+  },
+  {
+    "fullName": "Greek",
+    "shortName": "el"
+  },
+  {
+    "fullName": "English",
+    "shortName": "en"
+  },
+  {
+    "fullName": "Esperanto",
+    "shortName": "eo"
+  },
+  {
+    "fullName": "Spanish",
+    "shortName": "es"
+  },
+  {
+    "fullName": "Estonian",
+    "shortName": "et"
+  },
+  {
+    "fullName": "Basque",
+    "shortName": "eu"
+  },
+  {
+    "fullName": "Persian",
+    "shortName": "fa"
+  },
+  {
+    "fullName": "Finnish",
+    "shortName": "fi"
+  },
+  {
+    "fullName": "French",
+    "shortName": "fr"
+  },
+  {
+    "fullName": "Western Frisian",
+    "shortName": "fy"
+  },
+  {
+    "fullName": "Irish",
+    "shortName": "ga"
+  },
+  {
+    "fullName": "Scottish Gaelic",
+    "shortName": "gd"
+  },
+  {
+    "fullName": "Galician",
+    "shortName": "gl"
+  },
+  {
+    "fullName": "Guarani",
+    "shortName": "gn"
+  },
+  {
+    "fullName": "Konkani",
+    "shortName": "gom"
+  },
+  {
+    "fullName": "Gujarati",
+    "shortName": "gu"
+  },
+  {
+    "fullName": "Hausa",
+    "shortName": "ha"
+  },
+  {
+    "fullName": "Hawaiian",
+    "shortName": "haw"
+  },
+  {
+    "fullName": "Hebrew",
+    "shortName": "he"
+  },
+  {
+    "fullName": "Hindi",
+    "shortName": "hi"
+  },
+  {
+    "fullName": "Hmong",
+    "shortName": "hmn"
+  },
+  {
+    "fullName": "Croatian",
+    "shortName": "hr"
+  },
+  {
+    "fullName": "Haitian Creole",
+    "shortName": "ht"
+  },
+  {
+    "fullName": "Hungarian",
+    "shortName": "hu"
+  },
+  {
+    "fullName": "Armenian",
+    "shortName": "hy"
+  },
+  {
+    "fullName": "Indonesian",
+    "shortName": "id"
+  },
+  {
+    "fullName": "Igbo",
+    "shortName": "ig"
+  },
+  {
+    "fullName": "Ilokano",
+    "shortName": "ilo"
+  },
+  {
+    "fullName": "Icelandic",
+    "shortName": "is"
+  },
+  {
+    "fullName": "Italian",
+    "shortName": "it"
+  },
+  {
+    "fullName": "Modern Hebrew",
+    "shortName": "iw"
+  },
+  {
+    "fullName": "Japanese",
+    "shortName": "ja"
+  },
+  {
+    "fullName": "Javanese",
+    "shortName": "jv"
+  },
+  {
+    "fullName": "Georgian",
+    "shortName": "ka"
+  },
+  {
+    "fullName": "Kazakh",
+    "shortName": "kk"
+  },
+  {
+    "fullName": "Khmer",
+    "shortName": "km"
+  },
+  {
+    "fullName": "Kannada",
+    "shortName": "kn"
+  },
+  {
+    "fullName": "Korean",
+    "shortName": "ko"
+  },
+  {
+    "fullName": "Krio",
+    "shortName": "kri"
+  },
+  {
+    "fullName": "Kurdish",
+    "shortName": "ku"
+  },
+  {
+    "fullName": "Kyrgyz",
+    "shortName": "ky"
+  },
+  {
+    "fullName": "Latin",
+    "shortName": "la"
+  },
+  {
+    "fullName": "Luxembourgish",
+    "shortName": "lb"
+  },
+  {
+    "fullName": "Ganda",
+    "shortName": "lg"
+  },
+  {
+    "fullName": "Lingala",
+    "shortName": "ln"
+  },
+  {
+    "fullName": "Lao",
+    "shortName": "lo"
+  },
+  {
+    "fullName": "Lithuanian",
+    "shortName": "lt"
+  },
+  {
+    "fullName": "Mizo",
+    "shortName": "lus"
+  },
+  {
+    "fullName": "Latvian",
+    "shortName": "lv"
+  },
+  {
+    "fullName": "Maithili",
+    "shortName": "mai"
+  },
+  {
+    "fullName": "Malagasy",
+    "shortName": "mg"
+  },
+  {
+    "fullName": "Maori",
+    "shortName": "mi"
+  },
+  {
+    "fullName": "Macedonian",
+    "shortName": "mk"
+  },
+  {
+    "fullName": "Malayalam",
+    "shortName": "ml"
+  },
+  {
+    "fullName": "Mongolian",
+    "shortName": "mn"
+  },
+  {
+    "fullName": "Manipuri",
+    "shortName": "mni-Mtei"
+  },
+  {
+    "fullName": "Marathi",
+    "shortName": "mr"
+  },
+  {
+    "fullName": "Malay",
+    "shortName": "ms"
+  },
+  {
+    "fullName": "Maltese",
+    "shortName": "mt"
+  },
+  {
+    "fullName": "Nepali",
+    "shortName": "ne"
+  },
+  {
+    "fullName": "Dutch",
+    "shortName": "nl"
+  },
+  {
+    "fullName": "Norwegian",
+    "shortName": "no"
+  },
+  {
+    "fullName": "Northern Sotho",
+    "shortName": "nso"
+  },
+  {
+    "fullName": "Chichewa",
+    "shortName": "ny"
+  },
+  {
+    "fullName": "Oromo",
+    "shortName": "om"
+  },
+  {
+    "fullName": "Oriya",
+    "shortName": "or"
+  },
+  {
+    "fullName": "Punjabi",
+    "shortName": "pa"
+  },
+  {
+    "fullName": "Polish",
+    "shortName": "pl"
+  },
+  {
+    "fullName": "Pashto",
+    "shortName": "ps"
+  },
+  {
+    "fullName": "Portuguese",
+    "shortName": "pt"
+  },
+  {
+    "fullName": "Quechua",
+    "shortName": "qu"
+  },
+  {
+    "fullName": "Romanian",
+    "shortName": "ro"
+  },
+  {
+    "fullName": "Russian",
+    "shortName": "ru"
+  },
+  {
+    "fullName": "Kinyarwanda",
+    "shortName": "rw"
+  },
+  {
+    "fullName": "Sanskrit",
+    "shortName": "sa"
+  },
+  {
+    "fullName": "Sindhi",
+    "shortName": "sd"
+  },
+  {
+    "fullName": "Sinhala",
+    "shortName": "si"
+  },
+  {
+    "fullName": "Slovak",
+    "shortName": "sk"
+  },
+  {
+    "fullName": "Slovenian",
+    "shortName": "sl"
+  },
+  {
+    "fullName": "Samoan",
+    "shortName": "sm"
+  },
+  {
+    "fullName": "Shona",
+    "shortName": "sn"
+  },
+  {
+    "fullName": "Somali",
+    "shortName": "so"
+  },
+  {
+    "fullName": "Albanian",
+    "shortName": "sq"
+  },
+  {
+    "fullName": "Serbian",
+    "shortName": "sr"
+  },
+  {
+    "fullName": "Southern Sotho",
+    "shortName": "st"
+  },
+  {
+    "fullName": "Sundanese",
+    "shortName": "su"
+  },
+  {
+    "fullName": "Swedish",
+    "shortName": "sv"
+  },
+  {
+    "fullName": "Swahili",
+    "shortName": "sw"
+  },
+  {
+    "fullName": "Tamil",
+    "shortName": "ta"
+  },
+  {
+    "fullName": "Telugu",
+    "shortName": "te"
+  },
+  {
+    "fullName": "Tajik",
+    "shortName": "tg"
+  },
+  {
+    "fullName": "Thai",
+    "shortName": "th"
+  },
+  {
+    "fullName": "Tigrinya",
+    "shortName": "ti"
+  },
+  {
+    "fullName": "Turkmen",
+    "shortName": "tk"
+  },
+  {
+    "fullName": "Tagalog",
+    "shortName": "tl"
+  },
+  {
+    "fullName": "Turkish",
+    "shortName": "tr"
+  },
+  {
+    "fullName": "Tsonga",
+    "shortName": "ts"
+  },
+  {
+    "fullName": "Tatar",
+    "shortName": "tt"
+  },
+  {
+    "fullName": "Uighur",
+    "shortName": "ug"
+  },
+  {
+    "fullName": "Ukrainian",
+    "shortName": "uk"
+  },
+  {
+    "fullName": "Urdu",
+    "shortName": "ur"
+  },
+  {
+    "fullName": "Uzbek",
+    "shortName": "uz"
+  },
+  {
+    "fullName": "Vietnamese",
+    "shortName": "vi"
+  },
+  {
+    "fullName": "Xhosa",
+    "shortName": "xh"
+  },
+  {
+    "fullName": "Yiddish",
+    "shortName": "yi"
+  },
+  {
+    "fullName": "Yoruba",
+    "shortName": "yo"
+  },
+  {
+    "fullName": "Chinese",
+    "shortName": "zh"
+  },
+  {
+    "fullName": "Chinese (Simplified)",
+    "shortName": "zh-CN"
+  },
+  {
+    "fullName": "Chinese (Traditional)",
+    "shortName": "zh-TW"
+  },
+  {
+    "fullName": "Zulu",
+    "shortName": "zu"
+  }
+]

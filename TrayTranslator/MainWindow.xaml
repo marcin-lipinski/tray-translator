@@ -112,7 +112,7 @@
             </ComboBox>
 
             <Ellipse
-                x:Name="ExitButtonEllipseShadow"
+                x:Name="HideButtonShadow"
                 Grid.Row="0"
                 Grid.Column="1"
                 Width="24"
@@ -131,7 +131,7 @@
             </Ellipse>
 
             <Ellipse
-                x:Name="ExitButtonEllipse"
+                x:Name="HideButton"
                 Grid.Row="0"
                 Grid.Column="1"
                 Width="12"
@@ -140,31 +140,9 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
                 Fill="#ef4b4c"
-                Stroke="#ef4b4c" />
-            <TextBox
-                x:Name="ExitButtonText"
-                Grid.Column="1"
-                Width="12"
-                Height="12"
-                Margin="222,0,1,0"
-                Padding="0,0,0,1"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Panel.ZIndex="1"
-                Background="Transparent"
-                BorderBrush="#01ABADB3"
-                BorderThickness="0"
-                FontSize="8"
-                FontWeight="Bold"
-                Foreground="White"
-                IsReadOnly="True"
-                MouseEnter="ExitButtonText_MouseEnter"
-                MouseLeave="ExitButtonText_MouseLeave"
-                Text="X"
-                TextAlignment="Center" />
-
+                Stroke="#ef4b4c" 
+                Cursor="Hand"/>
+            
             <Border
                 Grid.Row="1"
                 Grid.RowSpan="4"
@@ -181,23 +159,6 @@
                     TextChanged="SourceText_TextChanged"
                     TextWrapping="Wrap" />
             </Border>
-
-            <!--<Border
-                x:Name="Placeholder"
-                Grid.Row="1"
-                Grid.RowSpan="4"
-                Margin="10,0"
-                Padding="5"
-                Background="#e9e9eb"
-                BorderThickness="0"
-                CornerRadius="10">
-                <TextBox
-                    x:Name="PlaceholderText"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Text="Start typing..."
-                    TextWrapping="Wrap" />
-            </Border>-->
 
             <Border
                 Grid.Row="1"
@@ -219,12 +180,12 @@
 
             <tb:TaskbarIcon
                 x:Name="MyIcon"
-                IconSource="resources/error.ico"
-                ToolTipText="Click to open a translator">
+                IconSource="/error.ico">
 
                 <tb:TaskbarIcon.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Turn off" MouseLeftButtonDown="MenuItem_MouseLeftButtonDown" />
+                        <MenuItem x:Name="CloseMenuItem" Header="Close" />
+                        <MenuItem x:Name="ShowMenuItem" Header="Show"/>
                     </ContextMenu>
                 </tb:TaskbarIcon.ContextMenu>
             </tb:TaskbarIcon>

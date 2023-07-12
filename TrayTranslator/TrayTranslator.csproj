@@ -8,19 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="error.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.5.23280.8" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.5.23280.8" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0-preview.5.23280.8" />
-    <PackageReference Include="System.Net.Http.Json" Version="8.0.0-preview.5.23280.8" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Translator\Translator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources/error.ico" />
   </ItemGroup>
 
 </Project>
