@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using Translator;
 
 namespace TrayTranslator;
@@ -13,10 +11,10 @@ public partial class MainWindow : Window
     public MainWindow(ITranslationClient translationClient)
     {
         InitializeComponent();
+        _translationClient = translationClient;
         ReadAddLanguagesToComboBox();
         SetWindowCords();
         AddEventsHandlers();
-        _translationClient = translationClient;
     }
 
     private void SetWindowCords()
@@ -32,39 +30,41 @@ public partial class MainWindow : Window
         HideButton.MouseLeftButtonDown += (sender, e) => Visibility = Visibility.Collapsed;
         HideButton.MouseLeave += (sender, e) => HideButtonShadow.Visibility = Visibility.Hidden;
         HideButton.MouseEnter += (sender, e) => HideButtonShadow.Visibility = Visibility.Visible;
+        SourceLanguageComboBox.SelectionChanged += async (sender, e) => await DelayedCheck();
+        TargetLanguageComboBox.SelectionChanged += async (sender, e) => await DelayedCheck();
+        SourceText.TextChanged += async (sender, e) => await DelayedCheck();
     }
 
-    private async void ReadAddLanguagesToComboBox()
+    private void ReadAddLanguagesToComboBox()
     {
-        _languages = await _translationClient.Languages;
-        foreach (var language in _languages)
+        foreach (var language in _translationClient.Languages)
         {
-            SourceLanguageComboBox.Items.Add(language.Value.fullName);
-            TargetLanguageComboBox.Items.Add(language.Value.fullName);
+            SourceLanguageComboBox.Items.Add(language);
+            TargetLanguageComboBox.Items.Add(language);
         }
     }
 
-    private async void SourceText_TextChanged(object sender, TextChangedEventArgs e)
+    private async Task DelayedCheck()
     {
-        var currentText = SourceText.Text;
-        var targetText = await DelayedCheck(currentText);
-        TargetText.Text = targetText.Length == 0 ? TargetText.Text : targetText;
-    }
-
-    private async Task<string> DelayedCheck(string registeredText)
-    {
-        await Task.Delay(750);
+        var registeredText = SourceText.Text;
+        await Task.Delay(500);
         if (SourceText.Text.Equals(registeredText))
         {
-            var sourceLanguage = _languages[SourceLanguageComboBox.Text].shortName;
-            var targetLanguage = _languages[TargetLanguageComboBox.Text].shortName;
+            var sourceLanguage = SourceLanguageComboBox.Text;
+            var targetLanguage = TargetLanguageComboBox.Text;
+            var result = await _translationClient.Translate(registeredText, sourceLanguage, targetLanguage);
 
-            var result =  await _translationClient.Translate(registeredText, sourceLanguage, targetLanguage);
             if (result.State == State.Failed) TargetText.Foreground = System.Windows.Media.Brushes.DarkSlateGray;
             else TargetText.Foreground = System.Windows.Media.Brushes.Black;
 
-            return result.Text;
+            TargetText.Text = result.Text.Length == 0 ? TargetText.Text : result.Text;
         }
-        return string.Empty;
+    }
+
+    private void SwitchLanguages_Button(object sender, RoutedEventArgs er)
+    {
+        var temporaryText = TargetLanguageComboBox.Text;
+        TargetLanguageComboBox.Text = SourceLanguageComboBox.Text;
+        SourceLanguageComboBox.Text = temporaryText;
     }
 }

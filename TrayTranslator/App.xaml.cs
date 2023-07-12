@@ -15,9 +15,9 @@ public partial class App : Application
         AppHost = Host.CreateDefaultBuilder()
             .ConfigureServices((hostContext, servicies) =>
             {
+                servicies.AddSingleton<ITranslationClient, TranslationClient>();
                 servicies.AddSingleton<MainWindow>();
                 servicies.AddTranslationClient("translatorApi");
-                servicies.AddSingleton<ITranslationClient, TranslationClient>();
             })
             .Build();
     }

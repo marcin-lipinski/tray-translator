@@ -9,11 +9,9 @@ public static class ServiceExtensions
 {
     public static void AddTranslationClient(this IServiceCollection services, string name)
     {
-        var appsettingsUri = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName);
-
         var config = new ConfigurationBuilder()
-            .SetBasePath(appsettingsUri)
-            .AddJsonFile("Translator\\appsettings.json", optional: false, reloadOnChange: true)
+            .SetBasePath(TranslationClient.DirectoryPath)
+            .AddJsonFile("apiDetails.json", optional: false, reloadOnChange: true)
             .Build();
 
         var apiUri = config.GetValue<string>("apiUri");

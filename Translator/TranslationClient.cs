@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Translator.Models;
 using Translator.Services;
@@ -13,6 +12,7 @@ namespace Translator;
 
 public class TranslationClient : ITranslationClient
 {
+    public static readonly string DirectoryPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName, "Translator");
     private readonly IHttpClientFactory httpClientFactory;
     private readonly LanguagesService languagesService;
 
@@ -27,11 +27,12 @@ public class TranslationClient : ITranslationClient
         get => languagesService.Languages;
     }
 
-
     public async Task<TranslationResult> Translate(string sourceText, string sourceLanguage, string targetLanguage)
     {
         var client = httpClientFactory.CreateClient("translatorApi");
-        var message = CreateHttpRequestMessage(sourceText, sourceLanguage, targetLanguage);
+        var sourceLanguageShortName = languagesService.LanguageShortName(sourceLanguage);
+        var targetLanguageShortName = languagesService.LanguageShortName(targetLanguage);
+        var message = CreateHttpRequestMessage(sourceText, sourceLanguageShortName, targetLanguageShortName);
 
         try
         {
@@ -40,14 +41,14 @@ public class TranslationClient : ITranslationClient
             if (content.Data == null) throw new Exception();
 
             var translation = content.Data.Translations.First().TranslatedText;
-            return new (translation, State.Success);
+            return new(translation, State.Success);
         }
         catch (Exception)
         {
             return new("There was an error with the translator", State.Failed); ;
-        }        
+        }
     }
-    
+
     private HttpRequestMessage CreateHttpRequestMessage(string text, string sourceLanguage, string targetLanguage)
     {
         return new HttpRequestMessage

@@ -7,5 +7,5 @@ namespace Translator;
 public interface ITranslationClient
 {
     Task<TranslationResult> Translate(string sourceText, string sourceLanguage, string targetLanguage);
-    publList<string> Languages;
+    List<string> Languages { get; }
 }

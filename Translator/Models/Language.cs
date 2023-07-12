@@ -1,7 +1,9 @@
-﻿namespace Translator.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Translator.Models;
 
 public class Language
 {
-    public string fullName { get; set; }
-    public string shortName { get; set; }
+    [JsonPropertyName("fullName")] public string FullName { get; set; }
+    [JsonPropertyName("shortName")] public string ShortName { get; set; }
 }
