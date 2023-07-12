@@ -18,7 +18,8 @@ namespace Translator.Services
         public string LanguageShortName(string language) => _languages[language].ShortName;
         public List<string> Languages
         {
-            get => _languages.Keys.ToList();
+            get => _languages.Keys.OrderBy(a => a).ToList();
+           
         }
 
         private async void LoadLanguages()
